@@ -12,16 +12,17 @@ def read_multiple_csv_file(file_path):
     data = {
         "id": [1, 2, 3],
         "name": ["Alice", "Bob", "Charlie"],
-        "value": [100, 200, None]
+        "value": [100, 200, None],
     }
 
     alt_data = {
         "id": [1, 2, 3],
         "name": ["Alice", "Bob", "Charlie"],
-        "value": [100, 200, 300]
+        "value": [100, 200, 300],
     }
 
     return pd.DataFrame(data), pd.DataFrame(alt_data)
+
 
 @extract("BICI_DM_EVO_CANAL_VENTA")
 def read_single_csv_file(file_path):
@@ -29,10 +30,11 @@ def read_single_csv_file(file_path):
     data = {
         "id": [1, 2, 3],
         "name": ["Alice", "Bob", "Charlie"],
-        "value": [100, 200, None]
+        "value": [100, 200, None],
     }
 
     return pd.DataFrame(data)
+
 
 # @extract(["BICI_DM_EVO_CANAL_VENTA", "BICI_TH_EVO_FEST_MUNICIPIO"])
 def read_combined(file_path):
@@ -55,7 +57,7 @@ def clean_data(df):
 def add_column(df):
     """Add a new column 'new_value' to the DataFrame."""
     df = df.copy()  # Avoid SettingWithCopyWarning
-    df.loc[:, 'new_value'] = df['value'] * 2
+    df.loc[:, "new_value"] = df["value"] * 2
     return df
 
 
@@ -90,4 +92,3 @@ if __name__ == "__main__":
 
     save_to_csv(mult_data_1, "output2.csv")
     save_to_alt_csv(mult_data_2, "output3.csv")
-
