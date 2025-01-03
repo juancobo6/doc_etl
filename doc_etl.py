@@ -12,6 +12,11 @@ from const import data_schema as DB_SCHEMA
 
 
 def parse_schema(schema):
+    """
+    Parse the schema of a table from the output of the defined query
+    :param schema: A list with the schema of the table
+    :return: A list with the columns of the table
+    """
     columns = []
     for column in schema:
         column_name = column[2]
@@ -20,6 +25,11 @@ def parse_schema(schema):
 
 
 def get_table(table):
+    """
+    Get the schema of a table from the database schema
+    :param table: A string with the table name
+    :return: A dictionary with the table schema
+    """
     database_dict = {table: []}
     for row in DB_SCHEMA:
         table_name = row[1]
@@ -32,6 +42,7 @@ def get_table(table):
     return table
 
 
+# TODO: Is there a way to not use a global variable?
 INFO_DICT = {}
 
 
